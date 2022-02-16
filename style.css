@@ -1,0 +1,192 @@
+* {
+    box-sizing : border-box;
+    padding : 0;
+    margin : 0;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --white-color : white;
+    --primary-color : #4daf54;
+}
+
+body {
+    height : 100vh;
+    background : linear-gradient(to right, #4daf54, #3d8880);
+}
+
+
+.card {
+    margin : 120px auto;
+    height : 400px;
+    width : 320px;
+    background-color : #272d40;
+    padding : 20px;
+    color : var(--white-color);
+    position : relative;
+    border-radius : 15px;
+}
+
+.card__heart, .card__cart {
+    position : absolute;
+    top : 15px;
+    left : 20px;
+    font-size : 25px;
+    cursor : pointer;
+}
+
+.card__cart {
+    /* Phải sử sụng left : unset để bỏ cái left trước đi */
+    left : unset;
+    right : 20px;
+}
+
+.card__img {
+    width : 78%;
+    margin : 0 auto;
+    margin-top : 20px;
+    transition : 0.4s;
+}
+
+.card__img img{
+    width : 100%;
+    height : 100%;
+    /* object-fit : cover làm ảnh hd không bị vỡ*/
+    object-fit : cover;
+}
+
+.card__title, .card__price {
+   font-size : 25px;
+   font-weight : bold;
+   text-align : center;
+   transition : 0.4s;
+   
+} 
+
+.card__title {
+    color : var(--primary-color);
+    margin-top : 20px;
+}
+
+.card__price {
+   margin-bottom : 30px;
+}
+
+.card__size {
+   display : flex;
+   align-items : center;
+   margin-top : 200px;
+}
+
+.card__size-text {
+    margin-right : 18px;
+}
+
+.card__size span {
+    background-color : gray;
+    padding : 1px 6px;
+    margin : 0 3px;
+    border-radius : 5px;
+    cursor : pointer;
+}
+
+.card__action {
+
+}
+
+.card__btn {
+    border : none;
+    outline : none;
+    background-color : var(--primary-color);
+   width : 95px;
+   height : 32px;
+   border-radius : 5px;
+   color :  var(--white-color);
+   font-weight : bold;
+   margin-right : 5px;
+   transition : 0.2s;
+   cursor : pointer;
+}
+
+.card__btn:hover {
+    transform : scale(0.9);
+}
+
+
+.card__color {
+    font-size : 20px;
+    display : flex;
+    align-items : center;
+    margin : 10px 0;
+}
+
+.card__color-text {
+    margin-right : 10px;
+}
+
+.card__color--green,
+.card__color--red,
+.card__color--black {
+    display : block;
+    width : 15px;
+    height : 15px;
+    border-radius : 50%;
+    margin : 0 3px;
+    cursor : pointer;
+}
+
+.card__color--black {
+    width : 16px;
+    height : 16px;
+}
+
+.card__color--green { 
+   background-color : green;
+}
+
+.card__color--red {
+   background-color : red;
+}
+
+.card__color--black {
+   background-color : black;
+}
+
+
+/* Các hành động khi hover */
+.card:hover .card__img {
+    transform : translateY(-80px) rotate(-20deg);
+}
+
+
+.card:hover .card__title {
+    transform : translate(-47px,-63px);
+}
+
+.card:hover .card__price {
+    transform : translate(-124px,-60px);
+}
+
+.card__size, .card__color, .card__btn {
+    visibility : hidden;
+    opacity : 0;
+    transition : 0.3s;
+
+}
+
+.card:hover .card__size, .card:hover .card__color , .card:hover .card__btn {
+    opacity : 1;
+    visibility : visible;
+}
+
+.card:hover .card__size {
+    margin-top : -40px;
+}
+
+/* làm delay để khi hover khỏi giật giật  */
+.card__size, .card__color, .card__action {
+    transition-delay : 0.2s;
+}
